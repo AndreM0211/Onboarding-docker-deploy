@@ -1,5 +1,4 @@
 ---
-#comment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -24,9 +23,7 @@ spec:
     spec:
       containers:
         - name: onboarding-docker-deploy
-          #image: "p00342-onboarding.docker.ing.net/onboardingdemo:latest"
           image: "p00342engineeringsamples.azurecr.io/onboardingdemo:latest"
-          #image: "https://p00342engineeringsamples.azurecr.io/onboardingdemo:20318/onboardingdemo:20318"
           imagePullPolicy: Always
           ports:
             - containerPort: nap
