@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: onboarding-docker-deploy
-          image: "p00342engineeringsamples.azurecr.io/onboardingdemo:latest"
+          image: "p00342-onboarding.docker.ing.net/onboardingdemo:latest"
           imagePullPolicy: Always
           ports:
             - containerPort: nap
