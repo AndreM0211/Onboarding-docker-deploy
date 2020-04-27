@@ -1,0 +1,22 @@
+---
+trigger:
+- onboarding
+# add your branche here
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '.'
+      Contents: |
+        *.yaml
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+      OverWrite: true
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'docker_oc_files'
+      publishLocation: 'Container'
