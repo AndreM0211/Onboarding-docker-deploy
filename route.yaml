@@ -7,7 +7,7 @@ metadata:
   name: onboarding-route
 spec:
   port:
-    targetPort: 8080
+    targetPort: 80
   tls:
     termination: edge
   to:
