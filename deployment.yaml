@@ -26,8 +26,8 @@ spec:
           image: "p00342engineeringsamples.azurecr.io/onboardingdemo:latest"
           imagePullPolicy: Always
           ports:
-            - containerPort: 443
-              name: https
+            - containerPort: 80
+              name: http
           resources:
             limits:
               cpu: 100m
