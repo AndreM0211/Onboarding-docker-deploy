@@ -1,0 +1,26 @@
+---
+trigger:
+- onboarding
+# add your branch here
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+# we are first copying the yaml files to the Artifact Staging Directory and 
+# then Publish them under the 'docker_oc_files' artifact folder
+# so we can use the yaml files in the release
+
+steps:
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '.'
+      Contents: '*.yaml'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+      CleanTargetFolder: true
+      OverWrite: true
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'docker_oc_files'
+      publishLocation: 'Container'
